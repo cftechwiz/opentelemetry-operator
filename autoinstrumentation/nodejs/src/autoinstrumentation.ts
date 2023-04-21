@@ -12,7 +12,11 @@ import { NodeSDK } from '@opentelemetry/sdk-node';
 
 const sdk = new NodeSDK({
     autoDetectResources: true,
-    instrumentations: [getNodeAutoInstrumentations()],
+    instrumentations: [
+        getNodeAutoInstrumentations({
+            '@opentelemetry/instrumentation-graphql': { ignoreTrivialResolveSpans: true }
+        }),
+    ],
     traceExporter: new OTLPTraceExporter(),
     metricReader: new PeriodicExportingMetricReader({
         exporter: new OTLPMetricExporter(),
