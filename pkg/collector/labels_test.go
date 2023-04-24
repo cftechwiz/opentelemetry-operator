@@ -32,7 +32,7 @@ func TestLabelsCommonSet(t *testing.T) {
 			Namespace: "my-ns",
 		},
 		Spec: v1alpha1.OpenTelemetryCollectorSpec{
-			Image: "ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator:0.47.0",
+			Image: "ghcr.io/cfallwell/opentelemetry-operator/opentelemetry-operator:0.47.0",
 		},
 	}
 
@@ -53,7 +53,7 @@ func TestLabelsTagUnset(t *testing.T) {
 			Namespace: "my-ns",
 		},
 		Spec: v1alpha1.OpenTelemetryCollectorSpec{
-			Image: "ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator",
+			Image: "ghcr.io/cfallwell/opentelemetry-operator/opentelemetry-operator",
 		},
 	}
 

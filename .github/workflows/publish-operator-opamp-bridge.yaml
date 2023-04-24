@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/open-telemetry/opentelemetry-operator/operator-opamp-bridge
+          images: ghcr.io/cfallwell/opentelemetry-operator/operator-opamp-bridge
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}

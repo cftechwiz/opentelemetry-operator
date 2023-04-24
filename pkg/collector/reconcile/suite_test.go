@@ -199,7 +199,7 @@ func paramsWithMode(mode v1alpha1.Mode) Params {
 				UID:       instanceUID,
 			},
 			Spec: v1alpha1.OpenTelemetryCollectorSpec{
-				Image: "ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator:0.47.0",
+				Image: "ghcr.io/cfallwell/opentelemetry-operator/opentelemetry-operator:0.47.0",
 				Ports: []v1.ServicePort{{
 					Name: "web",
 					Port: 80,

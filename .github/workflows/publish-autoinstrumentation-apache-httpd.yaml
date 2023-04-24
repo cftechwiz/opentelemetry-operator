@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/open-telemetry/opentelemetry-operator/autoinstrumentation-apache-httpd
+          images: ghcr.io/cfallwell/opentelemetry-operator/autoinstrumentation-apache-httpd
           tags: |
             type=match,pattern=v(.*),group=1,value=v${{ env.VERSION }}
 
