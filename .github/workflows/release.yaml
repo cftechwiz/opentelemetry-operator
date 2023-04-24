@@ -19,7 +19,7 @@ jobs:
 
     - name: "create the release in GitHub"
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TOKEN: ${{ secrets.TOKEN }}
       run: ./.ci/create-release-github.sh
 
     - name: "refresh go proxy module info on release"
@@ -34,7 +34,7 @@ jobs:
       org: redhat-openshift-ecosystem
       repo: community-operators-prod
     secrets:
-      OPENTELEMETRYBOT_GITHUB_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+      OPENTELEMETRYBOT_TOKEN: ${{ secrets.OPENTELEMETRYBOT_TOKEN }}
 
   operator-hub-community-release:
     needs: release
@@ -43,4 +43,4 @@ jobs:
       org: k8s-operatorhub
       repo: community-operators
     secrets:
-      OPENTELEMETRYBOT_GITHUB_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+      OPENTELEMETRYBOT_TOKEN: ${{ secrets.OPENTELEMETRYBOT_TOKEN }}

@@ -10,7 +10,7 @@ on:
         type: string
         required: true
     secrets:
-      OPENTELEMETRYBOT_GITHUB_TOKEN:
+      OPENTELEMETRYBOT_TOKEN:
         required: true
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Sync fork
         env:
-          GH_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.OPENTELEMETRYBOT_TOKEN }}
         run: |
           # synchronizing the fork is fast, and avoids the need to fetch the full upstream repo
           # (fetching the upstream repo with "--depth 1" would lead to "shallow update not allowed"
@@ -40,13 +40,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: opentelemetrybot/${{ inputs.repo }}
-          token: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+          token: ${{ secrets.OPENTELEMETRYBOT_TOKEN }}
 
       - name: Checkout opentelemetry-operator to tmp/ directory
         uses: actions/checkout@v3
         with:
           repository: open-telemetry/opentelemetry-operator
-          token: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+          token: ${{ secrets.OPENTELEMETRYBOT_TOKEN }}
           path: tmp/
 
       - name: Update version
@@ -65,7 +65,7 @@ jobs:
       - name: Create pull request against ${{ inputs.org }}/${{ inputs.repo }}
         env:
           VERSION: ${{ env.version }}
-          GH_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.OPENTELEMETRYBOT_TOKEN }}
         run: |
           message="Update the opentelemetry to $VERSION"
           body="Release opentelemetry-operator \`$VERSION\`.
