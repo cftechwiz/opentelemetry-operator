@@ -14,7 +14,11 @@ const sdk = new NodeSDK({
     autoDetectResources: true,
     instrumentations: [
         getNodeAutoInstrumentations({
-            '@opentelemetry/instrumentation-graphql': { ignoreTrivialResolveSpans: true }
+            '@opentelemetry/instrumentation-graphql': { 
+            ignoreTrivialResolveSpans: true,
+            mergeItems: true,
+            depth: 3
+            }
         }),
     ],
     traceExporter: new OTLPTraceExporter(),
